@@ -5,23 +5,27 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
-    "deploy": "wrangler pages deploy ./build/client",
+    "deploy": "pnpm run build && wrangler pages deploy",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "wrangler pages dev ./build/client",
     "typecheck": "tsc",
-    "typegen": "wrangler types"
+    "typegen": "wrangler types",
+    "preview": "pnpm run build && wrangler pages dev",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@remix-run/cloudflare": "^2.9.2",
     "@remix-run/cloudflare-pages": "^2.9.2",
     "@remix-run/react": "^2.9.2",
+    "@sentry/vite-plugin": "^2.17.0",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "toucan-js": "^3.4.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240512.0",
+    "@cloudflare/workers-types": "^4.20240529.0",
     "@remix-run/dev": "^2.9.2",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
@@ -37,7 +41,7 @@
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1",
-    "wrangler": "3.57.1"
+    "wrangler": "3.57.2"
   },
   "engines": {
     "node": ">=20.0.0"
