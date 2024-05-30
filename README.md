@@ -10,7 +10,7 @@ pnpm i
 
 2. Create a sentry project on https://sentry.io
 
-3. Create a `.dev.vars` file and fill it with Sentry credentials
+3. Create an `.env` file and fill it with Sentry credentials
 
 ```
 SENTRY_ORG=""
@@ -19,12 +19,14 @@ SENTRY_DSN=""
 SENTRY_AUTH_TOKEN=""
 ```
 
-4. Build and run app
+4. Copy the `.env` file to `.dev.vars` for wrangler to pick them up when running the app
+
+5. Build and run app
 
 ```
 pnpm preview
 ```
 
-5. Go to http://localhost:8788
+6. Go to http://localhost:8788
 
-6. Open your project on https://sentry.io, you should see an error with missing source maps.
+7. Open your project on https://sentry.io, you should see an error with missing source maps.
