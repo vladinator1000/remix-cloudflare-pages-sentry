@@ -1,5 +1,5 @@
 export function loader() {
-  throw new Error('boom')
+  throw new Error('index boom')
 }
 
 export default function Index() {
