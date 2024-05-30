@@ -19,9 +19,9 @@ SENTRY_DSN=""
 SENTRY_AUTH_TOKEN=""
 ```
 
-4. Copy the `.env` file to `.dev.vars` for wrangler to pick them up when running the app
+4. Copy the `.env` file to an `.dev.vars` file for wrangler to pick them up when running the app
 
-5. Build and run app
+5. Build and run the app
 
 ```
 pnpm preview
@@ -29,4 +29,4 @@ pnpm preview
 
 6. Go to http://localhost:8788
 
-7. Open your project on https://sentry.io, you should see an error with missing source maps.
+7. Open your project on https://sentry.io, you should see an error with wrong source maps.
