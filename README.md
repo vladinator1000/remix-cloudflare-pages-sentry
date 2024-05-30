@@ -1,48 +1,29 @@
-# Welcome to Remix + Vite!
+## Remix + Cloudflare + Sentry
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/guides/vite) for details on supported features.
+To reproduce bug, please
 
-## Typegen
+1. Install deps
 
-Generate types for your Cloudflare bindings in `wrangler.toml`:
-
-```sh
-npm run typegen
+```
+pnpm i
 ```
 
-You will need to rerun typegen whenever you make changes to `wrangler.toml`.
+2. Create a sentry project on https://sentry.io
 
-## Development
+3. Create a `.dev.vars` file and fill it with Sentry credentials
 
-Run the Vite dev server:
-
-```sh
-npm run dev
+```
+SENTRY_ORG=""
+SENTRY_PROJECT=""
+SENTRY_DSN=""
 ```
 
-To run Wrangler:
+4. Build and run app
 
-```sh
-npm run build
-npm run start
+```
+pnpm preview
 ```
 
-## Deployment
+5. Go to http://localhost:8788
 
-> [!WARNING]  
-> Cloudflare does _not_ use `wrangler.toml` to configure deployment bindings.
-> You **MUST** [configure deployment bindings manually in the Cloudflare dashboard][bindings].
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then, deploy your app to Cloudflare Pages:
-
-```sh
-npm run deploy
-```
-
-[bindings]: https://developers.cloudflare.com/pages/functions/bindings/
+6. Open your project on https://sentry.io, you should see an error with missing source maps.
