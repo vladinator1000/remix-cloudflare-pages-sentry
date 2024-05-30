@@ -16,6 +16,7 @@ pnpm i
 SENTRY_ORG=""
 SENTRY_PROJECT=""
 SENTRY_DSN=""
+SENTRY_AUTH_TOKEN=""
 ```
 
 4. Build and run app
