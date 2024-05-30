@@ -4,12 +4,17 @@ import {
 } from '@remix-run/dev'
 import { defineConfig, loadEnv } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import dotenv from 'dotenv'
 import { sentryVitePlugin } from '@sentry/vite-plugin'
 
 import { getLoadContext } from './loadContext'
 
 export default defineConfig(({ mode }) => {
-  let env = loadEnv(mode, process.cwd())
+  dotenv.config({
+    path: './.dev.vars',
+  })
+
+  let { env } = process
 
   return {
     build: {
